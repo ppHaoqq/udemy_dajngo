@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>詳細</title>
+{% endblock title %}
+
+{% block content %}
+<h1>個別詳細</h1>
+<ul>
+    <li>タイトル：{{ object.title }}</li>
+    <li>購入金額：{{ object.price }}</li>
+    <li>詳細:{{ object.memo }}</li>
+</ul>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>書籍一覧</title>
+{% endblock title %}
+
+{% block content %}
+<h1>書籍一覧</h1>
+{% for item in object_list %}
+<ul>
+    <li>タイトル：{{ item.title }}</li>
+    <li>購入金額：{{ item.price }}円</li>
+</ul>
+{% endfor %}
+{% endblock content %}
