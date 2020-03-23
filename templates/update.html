@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>編集</title>
+編集
 {% endblock title %}
 
+{% block header %}
+編集
+{% endblock header %}
+
 {% block content %}
-<h1>編集</h1>
 <form action="" method="POST">{% csrf_token %}
-    {{ form.title }}
-    {{ form.price }}
-    {{ form.memo }}
-    <input type="submit" value="更新する">
+{{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="更新する">
+    <a href="{% url 'list' %}"><button type="button" class="btn btn-secondary">戻る</button></a>
 </form>
 {% endblock content %}

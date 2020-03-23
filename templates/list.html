@@ -1,15 +1,41 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>書籍一覧</title>
+書籍一覧
 {% endblock title %}
 
+{% block header %}
+書籍一覧
+{% endblock header %}
+
 {% block content %}
-<h1>書籍一覧</h1>
-{% for item in object_list %}
-<ul>
-    <li>タイトル：{{ item.title }}</li>
-    <li>購入金額：{{ item.price }}円</li>
-</ul>
-{% endfor %}
+<div class="container-xl">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">タイトル</th>
+      <th scope="col">購入金額</th>
+      <th scope="col">著者</th>
+      <th scope="col">種別</th>
+      <th scope="col">評価</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in object_list %}
+    <tr>
+      <th scope="row">{{ item.pk }}</th>
+      <td><a href="{% url 'detail' item.pk %}">{{ item.title }}</a></td>
+      <td>{{ item.price }}円</td>
+      <td>{{ item.author }}</td>
+      <td>{{ item.kind }}</td>
+      <td>{{ item.eval }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<div class="container">
+<a href="{% url 'create' %}"><button type="button" class="btn btn-primary">新規登録</button></a>
+</div>
 {% endblock content %}
