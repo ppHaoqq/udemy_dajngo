@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-書籍一覧
+My本棚
 {% endblock title %}
 
 {% block header %}
-書籍一覧
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">My本棚</h1>
+    <a href="{% url 'create' %}"><button type="button" class="btn btn-primary">新規登録</button></a>
+  </div>
+</div>
 {% endblock header %}
 
 {% block content %}
@@ -15,8 +20,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">タイトル</th>
-      <th scope="col">購入金額</th>
       <th scope="col">著者</th>
+      <th scope="col">購入金額</th>
       <th scope="col">種別</th>
       <th scope="col">評価</th>
     </tr>
@@ -26,8 +31,8 @@
     <tr>
       <th scope="row">{{ item.pk }}</th>
       <td><a href="{% url 'detail' item.pk %}">{{ item.title }}</a></td>
-      <td>{{ item.price }}円</td>
       <td>{{ item.author }}</td>
+      <td>{{ item.price }}円</td>
       <td>{{ item.kind }}</td>
       <td>{{ item.eval }}</td>
     </tr>
@@ -35,7 +40,5 @@
   </tbody>
 </table>
 </div>
-<div class="container">
-<a href="{% url 'create' %}"><button type="button" class="btn btn-primary">新規登録</button></a>
-</div>
+
 {% endblock content %}
